@@ -8,7 +8,7 @@ Este repositório reúne os scripts em R desenvolvidos para o Trabalho de Conclu
 O objetivo é organizar e versionar os códigos utilizados na coleta, tratamento, análise e visualização de dados relacionados ao estudo da aplicação do conceito de cidades inteligentes e sustentáveis no contexto urbano de Teresina.
 
 ## Objetivos do Repositório
-- Centralizar os scripts em R utilizados na pesquisa.
+- Centralizar os scripts em R utilizados na pesquisa academica.
 - Garantir versionamento e reprodutibilidade das análises.
 - Facilitar a organização e a atualização dos códigos ao longo do desenvolvimento do TCC.
 
