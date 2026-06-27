@@ -10,8 +10,8 @@ digraph kingdon {
     layout = dot,
     rankdir = TB,
     labelloc = b,          # coloca o texto na parte de baixo
-    label = '\n\\n\\nElaborado por: Amanda Ravelly a partir de CAPELLA, 2007, p. 98',
-    fontsize = 12
+    label = '\n\\n\\nFonte: Elaborado por Amanda Ravelly com base em CAPELLA, 2007, p. 98',
+    fontsize = 13
   ]
 
   node [shape = box, style = filled, fillcolor = white, fontsize = 12]
