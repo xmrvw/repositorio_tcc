@@ -172,59 +172,89 @@ p_dependencia <- ggplot(
   grafico_transferencias,
   aes(x = ano, y = dependencia)
 ) +
+  
+  # Barras
   geom_col(
-    fill = "#C0392B",
-    width = 0.7
+    fill = "#457B9D",
+    width = 0.75
   ) +
+  
+  # Percentuais sobre as barras
   geom_text(
     aes(
-      label = percent(
+      label = scales::percent(
         dependencia,
         accuracy = 0.1,
         decimal.mark = ","
       )
     ),
-    vjust = -0.3,
-    size = 3
+    vjust = -0.35,
+    size = 3.8,
+    fontface = "bold",
+    colour = "black"
   ) +
+  
+  # Linha da média
   geom_hline(
     yintercept = media_transferencias,
-    linetype = "dashed",
-    color = "gray40",
-    linewidth = 0.5
+    colour = "gray35",
+    linewidth = 0.8,
+    linetype = "22"
   ) +
+  
+  # Texto da média
   annotate(
     "text",
-    x = 2,
-    y = media_transferencias + 0.050,
+    x = 5.5,
+    y = media_transferencias + 0.085,
     label = paste0(
       "Média do período: ",
-      percent(
+      scales::percent(
         media_transferencias,
         accuracy = 0.1,
         decimal.mark = ","
       )
     ),
-    hjust = 0,
-    size = 3,
-    color = "gray30"
+    size = 4.3,
+    fontface = "italic",
+    colour = "gray30"
   ) +
+  
   scale_y_continuous(
-    labels = percent_format(decimal.mark = ","),
-    limits = c(0, 0.80)
+    labels = scales::percent_format(decimal.mark = ","),
+    limits = c(0, 0.85),
+    expand = expansion(mult = c(0, 0.02))
   ) +
+  
   labs(
-    x = "",
-    y = "Quanto das receitas vem de transferências (%)",
-    caption = "Fonte: SICONFI/RREO/STN. Elaboração própria."
+    x = NULL,
+    y = "Transferências nas receitas correntes (%)"
   ) +
-  theme_minimal() +
+  
+  theme_minimal(base_size = 13) +
+  
   theme(
-    text = element_text(size = 10),
-    plot.caption = element_text(
-      size = 7,
-      color = "gray50",
-      hjust = 0
+    
+    text = element_text(family = "sans"),
+    
+    axis.title.y = element_text(
+      size = 14,
+      face = "bold"
+    ),
+    
+    axis.text = element_text(
+      size = 12,
+      colour = "black"
+    ),
+    
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    
+    plot.margin = margin(
+      t = 20,
+      r = 25,
+      b = 10,
+      l = 10
     )
   )
 
@@ -236,9 +266,10 @@ p_dependencia
 # ------------------------------------------------------------
 
 ggsave(
-  filename = "grafico_dependencia_federativa_teresina.png",
-  plot = p_dependencia,
-  width = 9,
-  height = 5,
-  dpi = 300
+  "figuras/dependencia_federativa_teresina.png",
+  p_dependencia,
+  width = 16,
+  height = 9,
+  units = "cm",
+  dpi = 600
 )
